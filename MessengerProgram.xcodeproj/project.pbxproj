@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B68E08F92986D82D004DE967 /* makeAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68E08F82986D82D004DE967 /* makeAccountView.swift */; };
 		B6BBC6D7298591BE00C48926 /* MessengerProgramApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BBC6D6298591BE00C48926 /* MessengerProgramApp.swift */; };
 		B6BBC6D9298591BE00C48926 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BBC6D8298591BE00C48926 /* ContentView.swift */; };
 		B6BBC6DB298591BF00C48926 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6BBC6DA298591BF00C48926 /* Assets.xcassets */; };
@@ -14,9 +15,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B68E08F82986D82D004DE967 /* makeAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = makeAccountView.swift; sourceTree = "<group>"; };
 		B6BBC6D3298591BE00C48926 /* MessengerProgram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MessengerProgram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6BBC6D6298591BE00C48926 /* MessengerProgramApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessengerProgramApp.swift; sourceTree = "<group>"; };
-		B6BBC6D8298591BE00C48926 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B6BBC6D8298591BE00C48926 /* ContentView.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; tabWidth = 4; };
 		B6BBC6DA298591BF00C48926 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B6BBC6DD298591BF00C48926 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -53,6 +55,7 @@
 			children = (
 				B6BBC6D6298591BE00C48926 /* MessengerProgramApp.swift */,
 				B6BBC6D8298591BE00C48926 /* ContentView.swift */,
+				B68E08F82986D82D004DE967 /* makeAccountView.swift */,
 				B6BBC6DA298591BF00C48926 /* Assets.xcassets */,
 				B6BBC6DC298591BF00C48926 /* Preview Content */,
 			);
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B68E08F92986D82D004DE967 /* makeAccountView.swift in Sources */,
 				B6BBC6D9298591BE00C48926 /* ContentView.swift in Sources */,
 				B6BBC6D7298591BE00C48926 /* MessengerProgramApp.swift in Sources */,
 			);

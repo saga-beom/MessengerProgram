@@ -7,20 +7,59 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct logInView: View {
+    @State var ID: String = ""
+    @State var Password:String = ""
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationView {
+            VStack {
+                Image(systemName: "paperplane")
+                    .font(.system(size :150))
+                    .frame(width: 350, height: 280)
+                    .imageScale(.large)
+                    .foregroundColor(.accentColor)
+                
+                VStack() {
+                    TextField("Enter your ID", text : $ID)
+                        .padding()
+                        .background(Color(uiColor: . secondarySystemBackground))
+                        .cornerRadius(15)
+                    TextField("Enter your Password", text : $Password)
+                        .padding()
+                        .background(Color(uiColor: . secondarySystemBackground))
+                        .cornerRadius(15)
+                }.frame(maxWidth: .infinity, maxHeight:160)
+                
+                Button {
+                    
+                } label : {
+                    Text("Sign In")
+                        .frame(maxWidth: .infinity, maxHeight: 35)
+                    
+                }
+                .buttonStyle(.borderedProminent)
+                .cornerRadius(15)
+                
+                HStack {
+                    Text("creat a new account")
+                    NavigationLink {
+                        makeAccountView()
+                    } label: {
+                        Text("Here")
+                    }
+                    
+                }
+                .frame(maxWidth: .infinity, maxHeight: 100)
+                
+            }
+            .padding()
         }
-        .padding()
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        logInView()
     }
 }
