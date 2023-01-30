@@ -15,73 +15,74 @@ struct makeAccountView: View {
     @State var email: String = ""
     
     var body: some View {
-        VStack {
-            Text("Create a new account")
-                .font(.largeTitle)
-                .foregroundColor(Color.blue)
-                .padding(.bottom, 40)
-                .padding(.top, 30)
-                
+        ScrollView() {
             VStack {
-                Text("ID")
-                    .font(.title2)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading)
-                TextField("", text: $ID)
-                    .padding()
-                    .background(Color(uiColor: . secondarySystemBackground))
-                    .cornerRadius(15)
+                Text("Create a new account")
+                    .font(.largeTitle)
+                    .foregroundColor(Color.blue)
+                    .padding(.bottom, 20)
+                    .padding(.top, 30)
                 
-                Text("Password")
-                    .font(.title2)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading)
-                TextField("", text: $Password)
-                    .padding()
-                    .background(Color(uiColor: . secondarySystemBackground))
-                    .cornerRadius(15)
+                VStack {
+                    Text("ID") // add hidden incorrect warning
+                        .font(.title2)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.leading)
+                    TextField("", text: $ID)
+                        .padding()
+                        .background(Color(uiColor: . secondarySystemBackground))
+                        .cornerRadius(15)
+                    
+                    Text("Password")
+                        .font(.title2)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.leading)
+                    SecureField("", text: $Password)
+                        .padding()
+                        .background(Color(uiColor: . secondarySystemBackground))
+                        .cornerRadius(15)
+                    
+                    Text("Password confirmation") // add hidden incorrect warning
+                        .font(.title2)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.leading)
+                    SecureField("", text: $checkPassword)
+                        .padding()
+                        .background(Color(uiColor: . secondarySystemBackground))
+                        .cornerRadius(15)
+                    
+                    Text("Nickname") // add hidden overlap warning
+                        .font(.title2)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.leading)
+                    TextField("", text: $nickname)
+                        .padding()
+                        .background(Color(uiColor: . secondarySystemBackground))
+                        .cornerRadius(15)
+                    
+                    Text("E-mail") // search email-form + add not necessary
+                        .font(.title2)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.leading)
+                    TextField("", text: $email)
+                        .padding()
+                        .background(Color(uiColor: . secondarySystemBackground))
+                        .cornerRadius(15)
+                    
+                }.padding()
                 
-                Text("Password confirmation")
-                    .font(.title2)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading)
-                TextField("", text: $checkPassword)
-                    .padding()
-                    .background(Color(uiColor: . secondarySystemBackground))
-                    .cornerRadius(15)
-                
-                Text("Nickname")
-                    .font(.title2)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading)
-                TextField("", text: $nickname)
-                    .padding()
-                    .background(Color(uiColor: . secondarySystemBackground))
-                    .cornerRadius(15)
-                
-                Text("E-mail")
-                    .font(.title2)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading)
-                TextField("", text: $email)
-                    .padding()
-                    .background(Color(uiColor: . secondarySystemBackground))
-                    .cornerRadius(15)
-                
-            }.padding()
-            
-            Button {
-                
-            } label : {
-                Text("Create")
-                    .frame(maxWidth: .infinity, maxHeight: 35)
-                
-            }.buttonStyle(.borderedProminent)
-             .cornerRadius(15)
-             .padding()
-            
-            Spacer()
-            
+                Button {
+                    
+                } label : {
+                    Text("Create")
+                        .frame(maxWidth: .infinity, maxHeight: 40)
+                    
+                }
+                .frame(height: 100, alignment: .top)
+                .buttonStyle(.borderedProminent)
+                .cornerRadius(15)
+                .padding()
+            }
         }
     }
 }

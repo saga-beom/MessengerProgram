@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+//to add login waring when login is failed
+
 struct logInView: View {
     @State var ID: String = ""
     @State var Password:String = ""
@@ -25,7 +27,7 @@ struct logInView: View {
                         .padding()
                         .background(Color(uiColor: . secondarySystemBackground))
                         .cornerRadius(15)
-                    TextField("Enter your Password", text : $Password)
+                    SecureField("Enter your Password", text : $Password)
                         .padding()
                         .background(Color(uiColor: . secondarySystemBackground))
                         .cornerRadius(15)
