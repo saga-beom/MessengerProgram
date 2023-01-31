@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct makeAccountView: View {
-    @State var ID: String = ""
-    @State var Password: String = ""
+    
+    @State var id: String = ""
+    @State var password: String = ""
     @State var checkPassword: String = ""
     @State var nickname: String = ""
     @State var email: String = ""
@@ -28,7 +29,7 @@ struct makeAccountView: View {
                         .font(.title2)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.leading)
-                    TextField("", text: $ID)
+                    TextField("", text: $id)
                         .padding()
                         .background(Color(uiColor: . secondarySystemBackground))
                         .cornerRadius(15)
@@ -37,7 +38,7 @@ struct makeAccountView: View {
                         .font(.title2)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.leading)
-                    SecureField("", text: $Password)
+                    SecureField("", text: $password)
                         .padding()
                         .background(Color(uiColor: . secondarySystemBackground))
                         .cornerRadius(15)
@@ -72,7 +73,11 @@ struct makeAccountView: View {
                 }.padding()
                 
                 Button {
+                    // id is 4~10
+                    // wrong password
+                    // already exist account
                     
+                    post(id: id, pwd: password, nickname: nickname, email: email)
                 } label : {
                     Text("Create")
                         .frame(maxWidth: .infinity, maxHeight: 40)

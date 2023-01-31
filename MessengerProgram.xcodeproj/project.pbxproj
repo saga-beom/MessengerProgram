@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B6841DCD29899D3B00F06BB6 /* PostIdentificationAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6841DCC29899D3B00F06BB6 /* PostIdentificationAPI.swift */; };
 		B68E08F92986D82D004DE967 /* makeAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68E08F82986D82D004DE967 /* makeAccountView.swift */; };
 		B6BBC6D7298591BE00C48926 /* MessengerProgramApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BBC6D6298591BE00C48926 /* MessengerProgramApp.swift */; };
 		B6BBC6D9298591BE00C48926 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BBC6D8298591BE00C48926 /* ContentView.swift */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B6841DCC29899D3B00F06BB6 /* PostIdentificationAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostIdentificationAPI.swift; sourceTree = "<group>"; };
 		B68E08F82986D82D004DE967 /* makeAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = makeAccountView.swift; sourceTree = "<group>"; };
 		B6BBC6D3298591BE00C48926 /* MessengerProgram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MessengerProgram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6BBC6D6298591BE00C48926 /* MessengerProgramApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessengerProgramApp.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 				B6BBC6D6298591BE00C48926 /* MessengerProgramApp.swift */,
 				B6BBC6D8298591BE00C48926 /* ContentView.swift */,
 				B68E08F82986D82D004DE967 /* makeAccountView.swift */,
+				B6841DCC29899D3B00F06BB6 /* PostIdentificationAPI.swift */,
 				B6BBC6DA298591BF00C48926 /* Assets.xcassets */,
 				B6BBC6DC298591BF00C48926 /* Preview Content */,
 			);
@@ -140,6 +143,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6841DCD29899D3B00F06BB6 /* PostIdentificationAPI.swift in Sources */,
 				B68E08F92986D82D004DE967 /* makeAccountView.swift in Sources */,
 				B6BBC6D9298591BE00C48926 /* ContentView.swift in Sources */,
 				B6BBC6D7298591BE00C48926 /* MessengerProgramApp.swift in Sources */,
