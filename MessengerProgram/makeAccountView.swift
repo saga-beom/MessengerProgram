@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct makeAccountView: View {
+    @State var catchError: String = ""
     
     @State var id: String = ""
     @State var password: String = ""
@@ -76,8 +77,27 @@ struct makeAccountView: View {
                     // id is 4~10
                     // wrong password
                     // already exist account
+                    post(id: id, pwd: password, nickname: nickname, email: email, errorType: { (res:String) -> Void in
+                        
+                        if (res == "overlap") {
+                            catchError = "overlap"
+                        }else if(res == "NotDefinedError") {
+                            catchError = "NotDefinedError"
+                        }else {
+                            catchError = "None"
+                        }
+                        
+                        if (catchError == "NotDefinedError") {
+                            print("NotDefinedError")
+                        } else if(catchError == "overlap") {
+                            print("overlap")
+                        } else {
+                            print("POST")
+                        }
+                        
+                    })
                     
-                    post(id: id, pwd: password, nickname: nickname, email: email)
+                    
                 } label : {
                     Text("Create")
                         .frame(maxWidth: .infinity, maxHeight: 40)

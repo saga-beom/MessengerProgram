@@ -9,7 +9,7 @@ import SwiftUI
 
 //to add login waring when login is failed
 
-//apeal keyboard
+//keyboard
 
 struct logInView: View {
     @State var ID: String = ""

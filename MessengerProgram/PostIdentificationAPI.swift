@@ -14,7 +14,15 @@ struct User: Codable {
     var email : String
 }
 
-func post(id: String, pwd: String, nickname: String, email:String ) {
+struct Error: Codable {
+    var error: String
+}
+
+
+
+
+func post(id: String, pwd: String, nickname: String, email:String, errorType: @escaping (String) -> Void) {
+            
     let components = URLComponents(string: "http://localhost:3000")
     
     guard let url = components?.url else {return}
@@ -31,12 +39,40 @@ func post(id: String, pwd: String, nickname: String, email:String ) {
     
     request.httpBody = try? JSONEncoder().encode(bodyModel)
     
-    let task = URLSession.shared.dataTask(with: request) { data, response, error in
-        guard let data,
-              let str = String(data: data, encoding: .utf8) else {return}
-        print(str)
+    let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+        guard let data else {return}
+        
+        let catchError = try? JSONDecoder().decode(Error.self, from: data)
+        
+        errorType(catchError?.error ?? "NotDefinedError")
+        
     }
     
     task.resume()
     
+    
+
 }
+
+
+//func checkOverlap() {
+//
+//    let components = URLComponents(string: "http://localhost:3000")
+//
+//    guard let url = components?.url else { return }
+//
+//    var request: URLRequest = URLRequest(url: url)
+//
+//
+//    request.httpMethod = "GET"
+//
+//    let task = URLSession.shared.dataTask(with: request) { data, response, error in
+//        guard let data,
+//              let str = String(data: data, encoding: .utf8) else { return }
+//        print(str)
+//    }
+//
+//    task.resume()
+//
+//    return
+//}
