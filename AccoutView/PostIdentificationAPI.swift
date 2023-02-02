@@ -39,12 +39,15 @@ func post(id: String, pwd: String, nickname: String, email:String, errorType: @e
     
     request.httpBody = try? JSONEncoder().encode(bodyModel)
     
+    
     let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
         guard let data else {return}
         
         let catchError = try? JSONDecoder().decode(Error.self, from: data)
         
+
         errorType(catchError?.error ?? "NotDefinedError")
+        
         
     }
     

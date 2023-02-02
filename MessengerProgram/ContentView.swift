@@ -12,6 +12,8 @@ import SwiftUI
 //keyboard
 
 struct logInView: View {
+    @State var naviLinkActive = false
+    
     @State var ID: String = ""
     @State var Password:String = ""
     
