@@ -14,8 +14,10 @@
 		B6EC050A298D02D2001701C5 /* postIdentificationAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EC0509298D02D2001701C5 /* postIdentificationAPI.swift */; };
 		B6EC050C298D0315001701C5 /* MakeAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EC050B298D0315001701C5 /* MakeAccountView.swift */; };
 		B6EC0512298D0646001701C5 /* checkLogIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EC0511298D0646001701C5 /* checkLogIn.swift */; };
-		B6EC051A298D5D66001701C5 /* chatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EC0519298D5D66001701C5 /* chatView.swift */; };
 		B6EC051D298D5E87001701C5 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EC051C298D5E87001701C5 /* RootView.swift */; };
+		B6EC0521298D66CB001701C5 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EC0520298D66CA001701C5 /* ChatView.swift */; };
+		B6EC0523298D66DC001701C5 /* FriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EC0522298D66DC001701C5 /* FriendView.swift */; };
+		B6EC0527298D6C1C001701C5 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EC0526298D6C1C001701C5 /* MainView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,8 +29,10 @@
 		B6EC0509298D02D2001701C5 /* postIdentificationAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = postIdentificationAPI.swift; sourceTree = "<group>"; };
 		B6EC050B298D0315001701C5 /* MakeAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeAccountView.swift; sourceTree = "<group>"; };
 		B6EC0511298D0646001701C5 /* checkLogIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = checkLogIn.swift; sourceTree = "<group>"; };
-		B6EC0519298D5D66001701C5 /* chatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chatView.swift; sourceTree = "<group>"; };
 		B6EC051C298D5E87001701C5 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		B6EC0520298D66CA001701C5 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		B6EC0522298D66DC001701C5 /* FriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendView.swift; sourceTree = "<group>"; };
+		B6EC0526298D6C1C001701C5 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,10 +77,12 @@
 			children = (
 				B63AC981298C1F0E0057F94A /* AccoutView */,
 				B6EC051B298D5E46001701C5 /* LogIn */,
-				B6EC0519298D5D66001701C5 /* chatView.swift */,
 				B6BBC6D6298591BE00C48926 /* MessengerProgramApp.swift */,
 				B6BBC6DA298591BF00C48926 /* Assets.xcassets */,
 				B6BBC6DC298591BF00C48926 /* Preview Content */,
+				B6EC0526298D6C1C001701C5 /* MainView.swift */,
+				B6EC0520298D66CA001701C5 /* ChatView.swift */,
+				B6EC0522298D66DC001701C5 /* FriendView.swift */,
 			);
 			path = MessengerProgram;
 			sourceTree = "<group>";
@@ -168,12 +174,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6EC0523298D66DC001701C5 /* FriendView.swift in Sources */,
 				B6EC051D298D5E87001701C5 /* RootView.swift in Sources */,
+				B6EC0527298D6C1C001701C5 /* MainView.swift in Sources */,
 				B63AC985298C29DF0057F94A /* isVaildEmail.swift in Sources */,
 				B6EC050C298D0315001701C5 /* MakeAccountView.swift in Sources */,
+				B6EC0521298D66CB001701C5 /* ChatView.swift in Sources */,
 				B6BBC6D7298591BE00C48926 /* MessengerProgramApp.swift in Sources */,
 				B6EC0512298D0646001701C5 /* checkLogIn.swift in Sources */,
-				B6EC051A298D5D66001701C5 /* chatView.swift in Sources */,
 				B6EC050A298D02D2001701C5 /* postIdentificationAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

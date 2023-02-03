@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct MakeAccountView: View {
     @Environment(\.presentationMode) var presentation
@@ -25,10 +26,17 @@ struct MakeAccountView: View {
     @State var nickname: String = ""
     @State var email: String = ""
     
+    @State private var personImage = Image(systemName: "person.circle.fill")
+    @State private var selectedPhoto: PhotosPickerItem? = nil
+    @State private var selectedImageData: Data? = nil
+    @State private var retrieveImage: UIImage? = nil
+    
     var body: some View {
+        
+
+        
         ScrollView() {
             VStack {
-                
                 Text("Create a new account")
                     .font(.largeTitle)
                     .foregroundColor(Color.blue)
@@ -36,53 +44,86 @@ struct MakeAccountView: View {
                     .padding(.top, 30)
                 
                 VStack {
-                    HStack {
+                    Group {
+                        PhotosPicker (
+                            selection: $selectedPhoto,
+                            matching: .images,
+                            photoLibrary: .shared())
+                            {
+                                personImage
+                            }
+                            .onChange(of: selectedPhoto) { newItem in
+                                Task {
+                                    if let data = try? await newItem?.loadTransferable(type: Data.self) {
+                                        selectedImageData = data
+                                        if selectedImageData != nil {
+                                            personImage = Image(uiImage: UIImage(data: selectedImageData!)!)
+                                        }
+                                    }
+                                }
+                            }
+                            .foregroundColor(Color.blue)
+                            .font(.system(size:200))
+                            .frame(width: 200.0, height: 200.0)
+                            .aspectRatio(contentMode: .fill)
+                            .clipShape(Circle())
+                        
+
+                        Text("Pick a photo")
+                            .font(.subheadline)
+                    }
+                    
+                    Group {
+                        
                         Text("ID")
                             .font(.title2)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding(.leading)
+                            .padding(.top, 35.0)
+                        
+                        TextField("between 4 and 6 characters long", text: $id)
+                            .padding()
+                            .background(Color(uiColor: . secondarySystemBackground))
+                            .cornerRadius(15)
+                        
+                        Text("Password")
+                            .font(.title2)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.leading)
+                        SecureField("between 6 and 12 characters long", text: $password)
+                            .padding()
+                            .background(Color(uiColor: . secondarySystemBackground))
+                            .cornerRadius(15)
+                        
+                        Text("Password confirmation")
+                            .font(.title2)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.leading)
+                        SecureField("", text: $checkPassword)
+                            .padding()
+                            .background(Color(uiColor: . secondarySystemBackground))
+                            .cornerRadius(15)
                     }
-                    // add keyboard to TextField
-                    TextField("", text: $id)
-                        .padding()
-                        .background(Color(uiColor: . secondarySystemBackground))
-                        .cornerRadius(15)
                     
-                    Text("Password")
-                        .font(.title2)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.leading)
-                    SecureField("", text: $password)
-                        .padding()
-                        .background(Color(uiColor: . secondarySystemBackground))
-                        .cornerRadius(15)
-                    
-                    Text("Password confirmation")
-                        .font(.title2)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.leading)
-                    SecureField("", text: $checkPassword)
-                        .padding()
-                        .background(Color(uiColor: . secondarySystemBackground))
-                        .cornerRadius(15)
-                    
-                    Text("Nickname")
-                        .font(.title2)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.leading)
-                    TextField("", text: $nickname)
-                        .padding()
-                        .background(Color(uiColor: . secondarySystemBackground))
-                        .cornerRadius(15)
-                    
-                    Text("E-mail") // search email-form + add not necessary
-                        .font(.title2)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.leading)
-                    TextField("", text: $email)
-                        .padding()
-                        .background(Color(uiColor: . secondarySystemBackground))
-                        .cornerRadius(15)
+                    Group {
+                        Text("Nickname")
+                            .font(.title2)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.leading)
+                        TextField("between 1 and 10 characters long", text: $nickname)
+                            .padding()
+                            .background(Color(uiColor: . secondarySystemBackground))
+                            .cornerRadius(15)
+                        
+                        Text("E-mail") // search email-form + add not necessary
+                            .font(.title2)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.leading)
+                        TextField("", text: $email)
+                            .padding()
+                            .background(Color(uiColor: . secondarySystemBackground))
+                            .cornerRadius(15)
+                    }
                     
                 }.padding()
                 
@@ -148,23 +189,22 @@ struct MakeAccountView: View {
                 } message: {
                     Text("Password must be between 6 and 12 characters long")
                 }
-                .alert("Password Error", isPresented: $notMatchPassword) {
-                    Button("Ok") { notMatchPassword = false}
-                } message: {
-                    Text("Password and Password confirmation does not match")
-                }
-                .alert("invaild Nickname", isPresented: $invaildNickname) {
-                    Button("Ok") { invaildNickname = false }
-                } message: {
-                    Text("Nickname must be between 1 and 10 characters long")
-                }
-                .alert("invaild Email", isPresented: $invaildEmail) {
-                    Button("Ok") { invaildEmail = false }
-                }
-                                            
             }
         
         // It was divided into VStack and Button to handle a large number of alerts
+        }
+        .alert("Password Error", isPresented: $notMatchPassword) {
+            Button("Ok") { notMatchPassword = false}
+        } message: {
+            Text("Password and Password confirmation does not match")
+        }
+        .alert("invaild Nickname", isPresented: $invaildNickname) {
+            Button("Ok") { invaildNickname = false }
+        } message: {
+            Text("Nickname must be between 1 and 10 characters long")
+        }
+        .alert("invaild Email", isPresented: $invaildEmail) {
+            Button("Ok") { invaildEmail = false }
         }
         .alert("occured Error", isPresented: $occuredError) {
             Button("Ok") {occuredError = false}

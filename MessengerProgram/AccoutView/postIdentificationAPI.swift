@@ -41,7 +41,7 @@ func post(id: String, pwd: String, nickname: String, email:String, errorType: @e
     
     
     let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-        guard let data else {return}
+        guard let data else {return errorType("NotDefinedError")}
         
         let catchError = try? JSONDecoder().decode(Error.self, from: data)
         

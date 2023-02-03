@@ -32,7 +32,7 @@ func checkVaildLogIn(id: String, logIn: @escaping (String) -> Void) {
     components?.queryItems?.append(myQuery)
     
     let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-        guard let data else { return }
+        guard let data else { return logIn("Error")}
         
         let resPw = try? JSONDecoder().decode(ResPW.self, from:data)
         

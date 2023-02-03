@@ -61,7 +61,7 @@ struct RootView: View {
                     } message: {
                         Text("ID does not exist")
                     }
-                    .alert("invaild ID", isPresented: $logInError) {
+                    .alert("Error occured", isPresented: $logInError) {
                         Button("Ok") { logInError = false }
                     } message: {
                         Text("unexpected error has occurred, please try again")
@@ -82,7 +82,7 @@ struct RootView: View {
                 .padding()
             }
         } else {
-            chatView()
+            MainView()
         }
     }
 }
