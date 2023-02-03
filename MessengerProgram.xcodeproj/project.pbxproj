@@ -8,23 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		B63AC985298C29DF0057F94A /* isVaildEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63AC984298C29DF0057F94A /* isVaildEmail.swift */; };
-		B6841DCD29899D3B00F06BB6 /* PostIdentificationAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6841DCC29899D3B00F06BB6 /* PostIdentificationAPI.swift */; };
-		B68E08F92986D82D004DE967 /* makeAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68E08F82986D82D004DE967 /* makeAccountView.swift */; };
 		B6BBC6D7298591BE00C48926 /* MessengerProgramApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BBC6D6298591BE00C48926 /* MessengerProgramApp.swift */; };
-		B6BBC6D9298591BE00C48926 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BBC6D8298591BE00C48926 /* ContentView.swift */; };
 		B6BBC6DB298591BF00C48926 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6BBC6DA298591BF00C48926 /* Assets.xcassets */; };
 		B6BBC6DE298591BF00C48926 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6BBC6DD298591BF00C48926 /* Preview Assets.xcassets */; };
+		B6EC050A298D02D2001701C5 /* postIdentificationAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EC0509298D02D2001701C5 /* postIdentificationAPI.swift */; };
+		B6EC050C298D0315001701C5 /* MakeAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EC050B298D0315001701C5 /* MakeAccountView.swift */; };
+		B6EC0512298D0646001701C5 /* checkLogIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EC0511298D0646001701C5 /* checkLogIn.swift */; };
+		B6EC051A298D5D66001701C5 /* chatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EC0519298D5D66001701C5 /* chatView.swift */; };
+		B6EC051D298D5E87001701C5 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EC051C298D5E87001701C5 /* RootView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B63AC984298C29DF0057F94A /* isVaildEmail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = isVaildEmail.swift; sourceTree = "<group>"; };
-		B6841DCC29899D3B00F06BB6 /* PostIdentificationAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostIdentificationAPI.swift; sourceTree = "<group>"; };
-		B68E08F82986D82D004DE967 /* makeAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = makeAccountView.swift; sourceTree = "<group>"; };
 		B6BBC6D3298591BE00C48926 /* MessengerProgram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MessengerProgram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6BBC6D6298591BE00C48926 /* MessengerProgramApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessengerProgramApp.swift; sourceTree = "<group>"; };
-		B6BBC6D8298591BE00C48926 /* ContentView.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; tabWidth = 4; };
 		B6BBC6DA298591BF00C48926 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B6BBC6DD298591BF00C48926 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B6EC0509298D02D2001701C5 /* postIdentificationAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = postIdentificationAPI.swift; sourceTree = "<group>"; };
+		B6EC050B298D0315001701C5 /* MakeAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeAccountView.swift; sourceTree = "<group>"; };
+		B6EC0511298D0646001701C5 /* checkLogIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = checkLogIn.swift; sourceTree = "<group>"; };
+		B6EC0519298D5D66001701C5 /* chatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chatView.swift; sourceTree = "<group>"; };
+		B6EC051C298D5E87001701C5 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,9 +45,9 @@
 		B63AC981298C1F0E0057F94A /* AccoutView */ = {
 			isa = PBXGroup;
 			children = (
-				B6841DCC29899D3B00F06BB6 /* PostIdentificationAPI.swift */,
-				B68E08F82986D82D004DE967 /* makeAccountView.swift */,
 				B63AC984298C29DF0057F94A /* isVaildEmail.swift */,
+				B6EC0509298D02D2001701C5 /* postIdentificationAPI.swift */,
+				B6EC050B298D0315001701C5 /* MakeAccountView.swift */,
 			);
 			path = AccoutView;
 			sourceTree = "<group>";
@@ -51,7 +55,6 @@
 		B6BBC6CA298591BE00C48926 = {
 			isa = PBXGroup;
 			children = (
-				B63AC981298C1F0E0057F94A /* AccoutView */,
 				B6BBC6D5298591BE00C48926 /* MessengerProgram */,
 				B6BBC6D4298591BE00C48926 /* Products */,
 			);
@@ -68,8 +71,10 @@
 		B6BBC6D5298591BE00C48926 /* MessengerProgram */ = {
 			isa = PBXGroup;
 			children = (
+				B63AC981298C1F0E0057F94A /* AccoutView */,
+				B6EC051B298D5E46001701C5 /* LogIn */,
+				B6EC0519298D5D66001701C5 /* chatView.swift */,
 				B6BBC6D6298591BE00C48926 /* MessengerProgramApp.swift */,
-				B6BBC6D8298591BE00C48926 /* ContentView.swift */,
 				B6BBC6DA298591BF00C48926 /* Assets.xcassets */,
 				B6BBC6DC298591BF00C48926 /* Preview Content */,
 			);
@@ -82,6 +87,15 @@
 				B6BBC6DD298591BF00C48926 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B6EC051B298D5E46001701C5 /* LogIn */ = {
+			isa = PBXGroup;
+			children = (
+				B6EC0511298D0646001701C5 /* checkLogIn.swift */,
+				B6EC051C298D5E87001701C5 /* RootView.swift */,
+			);
+			path = LogIn;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,11 +168,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6841DCD29899D3B00F06BB6 /* PostIdentificationAPI.swift in Sources */,
-				B68E08F92986D82D004DE967 /* makeAccountView.swift in Sources */,
+				B6EC051D298D5E87001701C5 /* RootView.swift in Sources */,
 				B63AC985298C29DF0057F94A /* isVaildEmail.swift in Sources */,
-				B6BBC6D9298591BE00C48926 /* ContentView.swift in Sources */,
+				B6EC050C298D0315001701C5 /* MakeAccountView.swift in Sources */,
 				B6BBC6D7298591BE00C48926 /* MessengerProgramApp.swift in Sources */,
+				B6EC0512298D0646001701C5 /* checkLogIn.swift in Sources */,
+				B6EC051A298D5D66001701C5 /* chatView.swift in Sources */,
+				B6EC050A298D02D2001701C5 /* postIdentificationAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

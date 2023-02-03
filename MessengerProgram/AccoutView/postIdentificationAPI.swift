@@ -1,8 +1,8 @@
 //
-//  PostIdentificationAPI.swift
+//  postIdentificationAPI.swift
 //  MessengerProgram
 //
-//  Created by hyobeom seo on 2023/02/01.
+//  Created by hyobeom seo on 2023/02/03.
 //
 
 import Foundation
@@ -23,7 +23,7 @@ struct Error: Codable {
 
 func post(id: String, pwd: String, nickname: String, email:String, errorType: @escaping (String) -> Void) {
             
-    let components = URLComponents(string: "http://localhost:3000")
+    let components = URLComponents(string: "http://localhost:3000/setUpAccount")
     
     guard let url = components?.url else {return}
     

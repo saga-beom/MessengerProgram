@@ -11,7 +11,7 @@ import SwiftUI
 struct MessengerProgramApp: App {
     var body: some Scene {
         WindowGroup {
-            logInView()
+            RootView()
         }
     }
 }

@@ -1,13 +1,13 @@
 //
-//  makeAccountView.swift
+//  MakeAccountView.swift
 //  MessengerProgram
 //
-//  Created by hyobeom seo on 2023/01/30.
+//  Created by hyobeom seo on 2023/02/03.
 //
 
 import SwiftUI
 
-struct makeAccountView: View {
+struct MakeAccountView: View {
     @Environment(\.presentationMode) var presentation
     
     @State var errorType: String = ""
@@ -114,7 +114,7 @@ struct makeAccountView: View {
                                 occuredError = true
                                 
                             }else if(res == "NotDefinedError") {
-                                errorType = "An unexpected error has occurred, please try again"
+                                errorType = "unexpected error has occurred, please try again"
                                 occuredError = true
                             } else if(res == "None") {
                                 errorType = "None"
@@ -179,9 +179,8 @@ struct makeAccountView: View {
     }
 }
 
-struct makeAccountView_Previews: PreviewProvider {
+struct MakeAccountView_Previews: PreviewProvider {
     static var previews: some View {
-        makeAccountView()
+        MakeAccountView()
     }
 }
-

@@ -13,5 +13,3 @@ func isValidEmail(email:String) -> Bool {
       let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
       return emailTest.evaluate(with: email)
 }
-
-
