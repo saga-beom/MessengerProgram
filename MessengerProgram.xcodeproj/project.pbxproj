@@ -9,12 +9,15 @@
 /* Begin PBXBuildFile section */
 		B63AC985298C29DF0057F94A /* isVaildEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63AC984298C29DF0057F94A /* isVaildEmail.swift */; };
 		B6832C4D298E4425009720A7 /* friends.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6832C4C298E4425009720A7 /* friends.swift */; };
+		B6832C51298E869D009720A7 /* HttpTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6832C50298E869D009720A7 /* HttpTool.swift */; };
+		B6832C58298ED5B1009720A7 /* messengerProgram.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B6832C56298ED5B1009720A7 /* messengerProgram.xcdatamodeld */; };
+		B6832C65298EE633009720A7 /* SearchFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6832C64298EE633009720A7 /* SearchFriendView.swift */; };
+		B6832C6C298F0059009720A7 /* Friends+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6832C6A298F0059009720A7 /* Friends+CoreDataClass.swift */; };
+		B6832C6D298F0059009720A7 /* Friends+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6832C6B298F0059009720A7 /* Friends+CoreDataProperties.swift */; };
 		B6BBC6D7298591BE00C48926 /* MessengerProgramApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BBC6D6298591BE00C48926 /* MessengerProgramApp.swift */; };
 		B6BBC6DB298591BF00C48926 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6BBC6DA298591BF00C48926 /* Assets.xcassets */; };
 		B6BBC6DE298591BF00C48926 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6BBC6DD298591BF00C48926 /* Preview Assets.xcassets */; };
-		B6EC050A298D02D2001701C5 /* postIdentificationAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EC0509298D02D2001701C5 /* postIdentificationAPI.swift */; };
 		B6EC050C298D0315001701C5 /* MakeAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EC050B298D0315001701C5 /* MakeAccountView.swift */; };
-		B6EC0512298D0646001701C5 /* checkLogIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EC0511298D0646001701C5 /* checkLogIn.swift */; };
 		B6EC051D298D5E87001701C5 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EC051C298D5E87001701C5 /* RootView.swift */; };
 		B6EC0521298D66CB001701C5 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EC0520298D66CA001701C5 /* ChatView.swift */; };
 		B6EC0523298D66DC001701C5 /* FriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EC0522298D66DC001701C5 /* FriendView.swift */; };
@@ -24,13 +27,16 @@
 /* Begin PBXFileReference section */
 		B63AC984298C29DF0057F94A /* isVaildEmail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = isVaildEmail.swift; sourceTree = "<group>"; };
 		B6832C4C298E4425009720A7 /* friends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = friends.swift; sourceTree = "<group>"; };
+		B6832C50298E869D009720A7 /* HttpTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpTool.swift; sourceTree = "<group>"; };
+		B6832C57298ED5B1009720A7 /* messengerProgram.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = messengerProgram.xcdatamodel; sourceTree = "<group>"; };
+		B6832C64298EE633009720A7 /* SearchFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFriendView.swift; sourceTree = "<group>"; };
+		B6832C6A298F0059009720A7 /* Friends+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Friends+CoreDataClass.swift"; path = "MessengerProgram/Friends+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B6832C6B298F0059009720A7 /* Friends+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Friends+CoreDataProperties.swift"; path = "MessengerProgram/Friends+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B6BBC6D3298591BE00C48926 /* MessengerProgram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MessengerProgram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6BBC6D6298591BE00C48926 /* MessengerProgramApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessengerProgramApp.swift; sourceTree = "<group>"; };
 		B6BBC6DA298591BF00C48926 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B6BBC6DD298591BF00C48926 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		B6EC0509298D02D2001701C5 /* postIdentificationAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = postIdentificationAPI.swift; sourceTree = "<group>"; };
 		B6EC050B298D0315001701C5 /* MakeAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeAccountView.swift; sourceTree = "<group>"; };
-		B6EC0511298D0646001701C5 /* checkLogIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = checkLogIn.swift; sourceTree = "<group>"; };
 		B6EC051C298D5E87001701C5 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		B6EC0520298D66CA001701C5 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		B6EC0522298D66DC001701C5 /* FriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendView.swift; sourceTree = "<group>"; };
@@ -52,15 +58,26 @@
 			isa = PBXGroup;
 			children = (
 				B63AC984298C29DF0057F94A /* isVaildEmail.swift */,
-				B6EC0509298D02D2001701C5 /* postIdentificationAPI.swift */,
 				B6EC050B298D0315001701C5 /* MakeAccountView.swift */,
 			);
 			path = AccoutView;
 			sourceTree = "<group>";
 		};
+		B6832C52298E8713009720A7 /* Friend */ = {
+			isa = PBXGroup;
+			children = (
+				B6EC0522298D66DC001701C5 /* FriendView.swift */,
+				B6832C4C298E4425009720A7 /* friends.swift */,
+				B6832C64298EE633009720A7 /* SearchFriendView.swift */,
+			);
+			path = Friend;
+			sourceTree = "<group>";
+		};
 		B6BBC6CA298591BE00C48926 = {
 			isa = PBXGroup;
 			children = (
+				B6832C6A298F0059009720A7 /* Friends+CoreDataClass.swift */,
+				B6832C6B298F0059009720A7 /* Friends+CoreDataProperties.swift */,
 				B6BBC6D5298591BE00C48926 /* MessengerProgram */,
 				B6BBC6D4298591BE00C48926 /* Products */,
 			);
@@ -77,15 +94,16 @@
 		B6BBC6D5298591BE00C48926 /* MessengerProgram */ = {
 			isa = PBXGroup;
 			children = (
+				B6832C52298E8713009720A7 /* Friend */,
 				B63AC981298C1F0E0057F94A /* AccoutView */,
 				B6EC051B298D5E46001701C5 /* LogIn */,
-				B6BBC6D6298591BE00C48926 /* MessengerProgramApp.swift */,
 				B6BBC6DA298591BF00C48926 /* Assets.xcassets */,
-				B6BBC6DC298591BF00C48926 /* Preview Content */,
 				B6EC0526298D6C1C001701C5 /* MainView.swift */,
 				B6EC0520298D66CA001701C5 /* ChatView.swift */,
-				B6EC0522298D66DC001701C5 /* FriendView.swift */,
-				B6832C4C298E4425009720A7 /* friends.swift */,
+				B6832C50298E869D009720A7 /* HttpTool.swift */,
+				B6BBC6DC298591BF00C48926 /* Preview Content */,
+				B6BBC6D6298591BE00C48926 /* MessengerProgramApp.swift */,
+				B6832C56298ED5B1009720A7 /* messengerProgram.xcdatamodeld */,
 			);
 			path = MessengerProgram;
 			sourceTree = "<group>";
@@ -101,7 +119,6 @@
 		B6EC051B298D5E46001701C5 /* LogIn */ = {
 			isa = PBXGroup;
 			children = (
-				B6EC0511298D0646001701C5 /* checkLogIn.swift */,
 				B6EC051C298D5E87001701C5 /* RootView.swift */,
 			);
 			path = LogIn;
@@ -180,12 +197,15 @@
 				B6EC0523298D66DC001701C5 /* FriendView.swift in Sources */,
 				B6EC051D298D5E87001701C5 /* RootView.swift in Sources */,
 				B6EC0527298D6C1C001701C5 /* MainView.swift in Sources */,
+				B6832C6D298F0059009720A7 /* Friends+CoreDataProperties.swift in Sources */,
 				B63AC985298C29DF0057F94A /* isVaildEmail.swift in Sources */,
+				B6832C58298ED5B1009720A7 /* messengerProgram.xcdatamodeld in Sources */,
 				B6EC050C298D0315001701C5 /* MakeAccountView.swift in Sources */,
+				B6832C51298E869D009720A7 /* HttpTool.swift in Sources */,
 				B6EC0521298D66CB001701C5 /* ChatView.swift in Sources */,
+				B6832C65298EE633009720A7 /* SearchFriendView.swift in Sources */,
+				B6832C6C298F0059009720A7 /* Friends+CoreDataClass.swift in Sources */,
 				B6BBC6D7298591BE00C48926 /* MessengerProgramApp.swift in Sources */,
-				B6EC0512298D0646001701C5 /* checkLogIn.swift in Sources */,
-				B6EC050A298D02D2001701C5 /* postIdentificationAPI.swift in Sources */,
 				B6832C4D298E4425009720A7 /* friends.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -387,6 +407,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B6832C56298ED5B1009720A7 /* messengerProgram.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B6832C57298ED5B1009720A7 /* messengerProgram.xcdatamodel */,
+			);
+			currentVersion = B6832C57298ED5B1009720A7 /* messengerProgram.xcdatamodel */;
+			path = messengerProgram.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B6BBC6CB298591BE00C48926 /* Project object */;
 }

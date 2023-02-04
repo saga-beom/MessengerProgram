@@ -12,10 +12,8 @@ struct MakeAccountView: View {
     @Environment(\.presentationMode) var presentation
     
     @State var errorType: String = ""
-    @State var invaildID: Bool = false
+    @State var invaildForm: Bool = false
     @State var notMatchPassword:Bool = false
-    @State var invaildPassword: Bool = false
-    @State var invaildNickname: Bool = false
     @State var invaildEmail:Bool = false
     @State var occuredError:Bool = false
     @State var createAccount:Bool = false
@@ -134,23 +132,19 @@ struct MakeAccountView: View {
                     // already exist account
                     
                     //if identification is not matched in format program pop up alert
-                    if (id.count < 4 || id.count > 10) {
-                        invaildID = true
-                        
-                    } else if (password.count < 6 || password.count > 12){
-                        invaildPassword = true
+                    if (id.count < 4 || id.count > 10 ||
+                        password.count < 6 || password.count > 12 ||
+                        nickname.count > 10 || nickname.count == 0) {
+                        invaildForm = true
                         
                     } else if (password != checkPassword) {
                         notMatchPassword = true
                         
-                    } else if (nickname.count > 10 || nickname.count == 0) {
-                        invaildNickname = true
-                        
-                    } else if (!isValidEmail(email: email)) {
+                    }  else if (!isValidEmail(email: email)) {
                         invaildEmail = true
                     } else {
                         
-                        post(id: id, pwd: password, nickname: nickname, email: email, errorType: { (res:String) -> Void in
+                        setUpAccount(id: id, pwd: password, nickname: nickname, email: email, errorType: { (res:String) -> Void in
                             
                             if (res == "overlap") {
                                 errorType = "This ID is already in use"
@@ -167,8 +161,6 @@ struct MakeAccountView: View {
                             
                         })
                         
-                        
-                        
                     }
                     
                     
@@ -181,29 +173,20 @@ struct MakeAccountView: View {
                 .buttonStyle(.borderedProminent)
                 .cornerRadius(15)
                 .padding()
-                .alert("invaild ID", isPresented: $invaildID) {
-                    Button("Ok") { invaildID = false }
+                .alert("invaild Form", isPresented: $invaildForm) {
+                    Button("Ok") { invaildForm = false }
                 } message: {
-                    Text("ID must be between 4 and 10 characters long")
+                    Text("It is not suitable")
                 }
-                .alert("Password Error", isPresented: $invaildPassword) {
-                    Button("Ok") { invaildPassword = false}
+                .alert("Password Error", isPresented: $notMatchPassword) {
+                    Button("Ok") { notMatchPassword = false}
                 } message: {
-                    Text("Password must be between 6 and 12 characters long")
+                    Text("Password and Password confirmation does not match")
                 }
+                
+                
             }
         
-        // It was divided into VStack and Button to handle a large number of alerts
-        }
-        .alert("Password Error", isPresented: $notMatchPassword) {
-            Button("Ok") { notMatchPassword = false}
-        } message: {
-            Text("Password and Password confirmation does not match")
-        }
-        .alert("invaild Nickname", isPresented: $invaildNickname) {
-            Button("Ok") { invaildNickname = false }
-        } message: {
-            Text("Nickname must be between 1 and 10 characters long")
         }
         .alert("invaild Email", isPresented: $invaildEmail) {
             Button("Ok") { invaildEmail = false }

@@ -21,7 +21,7 @@ struct FriendView: View {
                     
                     Spacer()
                     
-                    Button(action: {}, label: {
+                    NavigationLink(destination: SearchFriendView(), label: {
                         Image(systemName: "person.badge.plus")
                             .font(.system(size: 30))
                             .padding(.trailing, 20.0)

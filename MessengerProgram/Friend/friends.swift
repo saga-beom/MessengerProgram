@@ -6,11 +6,6 @@
 //
 
 import SwiftUI
+import CoreData
 
-let fileManager = FileManager.default
 
-let documentURL = fileManager.urls
-
-struct FriendList {
-    
-}
