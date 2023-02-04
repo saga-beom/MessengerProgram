@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B63AC985298C29DF0057F94A /* isVaildEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63AC984298C29DF0057F94A /* isVaildEmail.swift */; };
+		B6832C4D298E4425009720A7 /* friends.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6832C4C298E4425009720A7 /* friends.swift */; };
 		B6BBC6D7298591BE00C48926 /* MessengerProgramApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BBC6D6298591BE00C48926 /* MessengerProgramApp.swift */; };
 		B6BBC6DB298591BF00C48926 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6BBC6DA298591BF00C48926 /* Assets.xcassets */; };
 		B6BBC6DE298591BF00C48926 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6BBC6DD298591BF00C48926 /* Preview Assets.xcassets */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		B63AC984298C29DF0057F94A /* isVaildEmail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = isVaildEmail.swift; sourceTree = "<group>"; };
+		B6832C4C298E4425009720A7 /* friends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = friends.swift; sourceTree = "<group>"; };
 		B6BBC6D3298591BE00C48926 /* MessengerProgram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MessengerProgram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6BBC6D6298591BE00C48926 /* MessengerProgramApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessengerProgramApp.swift; sourceTree = "<group>"; };
 		B6BBC6DA298591BF00C48926 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				B6EC0526298D6C1C001701C5 /* MainView.swift */,
 				B6EC0520298D66CA001701C5 /* ChatView.swift */,
 				B6EC0522298D66DC001701C5 /* FriendView.swift */,
+				B6832C4C298E4425009720A7 /* friends.swift */,
 			);
 			path = MessengerProgram;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 				B6BBC6D7298591BE00C48926 /* MessengerProgramApp.swift in Sources */,
 				B6EC0512298D0646001701C5 /* checkLogIn.swift in Sources */,
 				B6EC050A298D02D2001701C5 /* postIdentificationAPI.swift in Sources */,
+				B6832C4D298E4425009720A7 /* friends.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

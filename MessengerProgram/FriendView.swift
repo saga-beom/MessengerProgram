@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct FriendView: View {
+    
+    @State var friends = ["Hyobeom", "Seo", "Saga"]
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -34,14 +37,32 @@ struct FriendView: View {
                 Spacer()
                 
                 ScrollView {
-                    VStack {
-//                        List {
-//                            ForEach() { item in
-//                                NavigationLink
-//                            }
-//                        }
+                    
+                    ForEach(0..<friends.count, id: \.self) { friendname in
+                        HStack {
+                            Image(systemName: "person.crop.circle.fill")
+                                .foregroundColor(Color.blue)
+                                .font(.system(size:35))
+                                .padding()
+                            
+                            Text(String(friends[friendname]))
+                                .font(.system(size:25))
+                                .padding()
+                            
+                            Spacer()
+                            
+                            NavigationLink(destination: Text("test")) {
+                                Image(systemName: "message.fill")
+                                    .font(.system(size:25))
+                                    .padding()
+                            }
+                        }
+                        .frame(height:65.0)
                         
+                        Divider()
+                            .background(Color.gray)
                     }
+                    
                 }
                 .frame(maxWidth: .infinity)
             }

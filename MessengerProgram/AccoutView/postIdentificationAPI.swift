@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct User: Codable {
     var id : String
@@ -58,24 +59,3 @@ func post(id: String, pwd: String, nickname: String, email:String, errorType: @e
 }
 
 
-//func checkOverlap() {
-//
-//    let components = URLComponents(string: "http://localhost:3000")
-//
-//    guard let url = components?.url else { return }
-//
-//    var request: URLRequest = URLRequest(url: url)
-//
-//
-//    request.httpMethod = "GET"
-//
-//    let task = URLSession.shared.dataTask(with: request) { data, response, error in
-//        guard let data,
-//              let str = String(data: data, encoding: .utf8) else { return }
-//        print(str)
-//    }
-//
-//    task.resume()
-//
-//    return
-//}

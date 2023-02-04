@@ -26,6 +26,8 @@ struct MakeAccountView: View {
     @State var nickname: String = ""
     @State var email: String = ""
     
+    @State var defaultImage = UIImage(systemName: "person.circle.fill")?.pngData()
+    
     @State private var personImage = Image(systemName: "person.circle.fill")
     @State private var selectedPhoto: PhotosPickerItem? = nil
     @State private var selectedImageData: Data? = nil
@@ -50,7 +52,7 @@ struct MakeAccountView: View {
                             matching: .images,
                             photoLibrary: .shared())
                             {
-                                personImage
+                                personImage.frame(width:200, height:200)
                             }
                             .onChange(of: selectedPhoto) { newItem in
                                 Task {
