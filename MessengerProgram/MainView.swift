@@ -8,10 +8,15 @@
 import SwiftUI
 
 struct MainView: View {
+    
+    @Binding var isLogIn:Bool
+    
+    let myID:String
+    
     var body: some View {
         TabView {
             
-            FriendView().tabItem {
+            FriendView(myID : myID, isLogIn: $isLogIn).tabItem {
                 Image(systemName: "person")
                 Text("Friends")
             }
@@ -27,7 +32,9 @@ struct MainView: View {
 }
 
 struct MainView_Previews: PreviewProvider {
+    @State static var isLogin = true
+    
     static var previews: some View {
-        MainView()
+        MainView(isLogIn: $isLogin , myID: "")
     }
 }

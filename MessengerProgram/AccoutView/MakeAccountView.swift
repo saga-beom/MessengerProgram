@@ -81,7 +81,7 @@ struct MakeAccountView: View {
                             .padding(.leading)
                             .padding(.top, 35.0)
                         
-                        TextField("between 4 and 6 characters long", text: $id)
+                        TextField("between 4 and 10 characters long", text: $id)
                             .padding()
                             .background(Color(uiColor: . secondarySystemBackground))
                             .cornerRadius(15)

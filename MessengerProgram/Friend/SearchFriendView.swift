@@ -7,14 +7,19 @@
 
 import SwiftUI
 
-// send log-in ID to this View
-// register MyId, searchID, nickname to database
-// search friend's nickname in corebase, in case, key is MyID
+// check friend overlap 
+
 
 struct SearchFriendView: View {
+    @Environment(\.managedObjectContext) var managedObjContext
+    @Environment(\.dismiss) var dismiss // back Navigation view
+ 
+    
     @State var searchId: String = ""
     @State var vaildSearch: Bool = false
     @State var errorOcurred: Bool = false
+    
+    let myID:String
     
     var body: some View {
         VStack {
@@ -43,8 +48,11 @@ struct SearchFriendView: View {
                         (res:String) -> Void in
                         if (res == "Error") {
                             errorOcurred = true
+                            return
                         } else {
+                            vaildSearch = true
                             print(res)
+                            DataController().addFriend(myID: myID, friendID: searchId, friendNickname: res, context: managedObjContext)
                         }
                         
                     })
@@ -57,7 +65,15 @@ struct SearchFriendView: View {
                        , maxHeight: 45)
                 .buttonStyle(.borderedProminent)
                 .cornerRadius(15)
-                
+                .alert("Adding friend", isPresented: $vaildSearch) {
+                    Button("Ok") {
+                        vaildSearch = false
+                        dismiss()
+                    }
+                }
+                .alert("Failed to add friend", isPresented: $errorOcurred) {
+                    Button("Ok") { errorOcurred = false }
+                }
             }
             .padding()
             .frame(maxWidth: .infinity)
@@ -70,6 +86,6 @@ struct SearchFriendView: View {
 
 struct SearchFriendView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchFriendView()
+        SearchFriendView(myID: "")
     }
 }

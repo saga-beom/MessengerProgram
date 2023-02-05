@@ -82,7 +82,7 @@ struct RootView: View {
                 .padding()
             }
         } else {
-            MainView()
+            MainView(isLogIn: $isLogIn, myID: ID)
         }
     }
 }

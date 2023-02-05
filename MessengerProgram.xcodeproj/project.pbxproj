@@ -8,12 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		B63AC985298C29DF0057F94A /* isVaildEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63AC984298C29DF0057F94A /* isVaildEmail.swift */; };
-		B6832C4D298E4425009720A7 /* friends.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6832C4C298E4425009720A7 /* friends.swift */; };
 		B6832C51298E869D009720A7 /* HttpTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6832C50298E869D009720A7 /* HttpTool.swift */; };
-		B6832C58298ED5B1009720A7 /* messengerProgram.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B6832C56298ED5B1009720A7 /* messengerProgram.xcdatamodeld */; };
 		B6832C65298EE633009720A7 /* SearchFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6832C64298EE633009720A7 /* SearchFriendView.swift */; };
-		B6832C6C298F0059009720A7 /* Friends+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6832C6A298F0059009720A7 /* Friends+CoreDataClass.swift */; };
-		B6832C6D298F0059009720A7 /* Friends+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6832C6B298F0059009720A7 /* Friends+CoreDataProperties.swift */; };
+		B69B31C1298F9D6F00BF18EB /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69B31C0298F9D6F00BF18EB /* DataController.swift */; };
+		B69B31C429900C2900BF18EB /* MessengerModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B69B31C229900C2900BF18EB /* MessengerModel.xcdatamodeld */; };
+		B69B31CA299013CF00BF18EB /* Memo.rtf in Resources */ = {isa = PBXBuildFile; fileRef = B69B31C9299013CF00BF18EB /* Memo.rtf */; };
 		B6BBC6D7298591BE00C48926 /* MessengerProgramApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BBC6D6298591BE00C48926 /* MessengerProgramApp.swift */; };
 		B6BBC6DB298591BF00C48926 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6BBC6DA298591BF00C48926 /* Assets.xcassets */; };
 		B6BBC6DE298591BF00C48926 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6BBC6DD298591BF00C48926 /* Preview Assets.xcassets */; };
@@ -26,12 +25,11 @@
 
 /* Begin PBXFileReference section */
 		B63AC984298C29DF0057F94A /* isVaildEmail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = isVaildEmail.swift; sourceTree = "<group>"; };
-		B6832C4C298E4425009720A7 /* friends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = friends.swift; sourceTree = "<group>"; };
 		B6832C50298E869D009720A7 /* HttpTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpTool.swift; sourceTree = "<group>"; };
-		B6832C57298ED5B1009720A7 /* messengerProgram.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = messengerProgram.xcdatamodel; sourceTree = "<group>"; };
 		B6832C64298EE633009720A7 /* SearchFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFriendView.swift; sourceTree = "<group>"; };
-		B6832C6A298F0059009720A7 /* Friends+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Friends+CoreDataClass.swift"; path = "MessengerProgram/Friends+CoreDataClass.swift"; sourceTree = "<group>"; };
-		B6832C6B298F0059009720A7 /* Friends+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Friends+CoreDataProperties.swift"; path = "MessengerProgram/Friends+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B69B31C0298F9D6F00BF18EB /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		B69B31C329900C2900BF18EB /* MessengerModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MessengerModel.xcdatamodel; sourceTree = "<group>"; };
+		B69B31C9299013CF00BF18EB /* Memo.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Memo.rtf; sourceTree = "<group>"; };
 		B6BBC6D3298591BE00C48926 /* MessengerProgram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MessengerProgram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6BBC6D6298591BE00C48926 /* MessengerProgramApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessengerProgramApp.swift; sourceTree = "<group>"; };
 		B6BBC6DA298591BF00C48926 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -67,17 +65,23 @@
 			isa = PBXGroup;
 			children = (
 				B6EC0522298D66DC001701C5 /* FriendView.swift */,
-				B6832C4C298E4425009720A7 /* friends.swift */,
 				B6832C64298EE633009720A7 /* SearchFriendView.swift */,
 			);
 			path = Friend;
 			sourceTree = "<group>";
 		};
+		B69B31BC298F98D000BF18EB /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				B69B31C229900C2900BF18EB /* MessengerModel.xcdatamodeld */,
+				B69B31C0298F9D6F00BF18EB /* DataController.swift */,
+			);
+			path = DataModel;
+			sourceTree = "<group>";
+		};
 		B6BBC6CA298591BE00C48926 = {
 			isa = PBXGroup;
 			children = (
-				B6832C6A298F0059009720A7 /* Friends+CoreDataClass.swift */,
-				B6832C6B298F0059009720A7 /* Friends+CoreDataProperties.swift */,
 				B6BBC6D5298591BE00C48926 /* MessengerProgram */,
 				B6BBC6D4298591BE00C48926 /* Products */,
 			);
@@ -94,6 +98,7 @@
 		B6BBC6D5298591BE00C48926 /* MessengerProgram */ = {
 			isa = PBXGroup;
 			children = (
+				B69B31BC298F98D000BF18EB /* DataModel */,
 				B6832C52298E8713009720A7 /* Friend */,
 				B63AC981298C1F0E0057F94A /* AccoutView */,
 				B6EC051B298D5E46001701C5 /* LogIn */,
@@ -103,7 +108,7 @@
 				B6832C50298E869D009720A7 /* HttpTool.swift */,
 				B6BBC6DC298591BF00C48926 /* Preview Content */,
 				B6BBC6D6298591BE00C48926 /* MessengerProgramApp.swift */,
-				B6832C56298ED5B1009720A7 /* messengerProgram.xcdatamodeld */,
+				B69B31C9299013CF00BF18EB /* Memo.rtf */,
 			);
 			path = MessengerProgram;
 			sourceTree = "<group>";
@@ -184,6 +189,7 @@
 			files = (
 				B6BBC6DE298591BF00C48926 /* Preview Assets.xcassets in Resources */,
 				B6BBC6DB298591BF00C48926 /* Assets.xcassets in Resources */,
+				B69B31CA299013CF00BF18EB /* Memo.rtf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,18 +201,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6EC0523298D66DC001701C5 /* FriendView.swift in Sources */,
+				B69B31C1298F9D6F00BF18EB /* DataController.swift in Sources */,
 				B6EC051D298D5E87001701C5 /* RootView.swift in Sources */,
 				B6EC0527298D6C1C001701C5 /* MainView.swift in Sources */,
-				B6832C6D298F0059009720A7 /* Friends+CoreDataProperties.swift in Sources */,
 				B63AC985298C29DF0057F94A /* isVaildEmail.swift in Sources */,
-				B6832C58298ED5B1009720A7 /* messengerProgram.xcdatamodeld in Sources */,
 				B6EC050C298D0315001701C5 /* MakeAccountView.swift in Sources */,
 				B6832C51298E869D009720A7 /* HttpTool.swift in Sources */,
+				B69B31C429900C2900BF18EB /* MessengerModel.xcdatamodeld in Sources */,
 				B6EC0521298D66CB001701C5 /* ChatView.swift in Sources */,
 				B6832C65298EE633009720A7 /* SearchFriendView.swift in Sources */,
-				B6832C6C298F0059009720A7 /* Friends+CoreDataClass.swift in Sources */,
 				B6BBC6D7298591BE00C48926 /* MessengerProgramApp.swift in Sources */,
-				B6832C4D298E4425009720A7 /* friends.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,13 +413,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		B6832C56298ED5B1009720A7 /* messengerProgram.xcdatamodeld */ = {
+		B69B31C229900C2900BF18EB /* MessengerModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				B6832C57298ED5B1009720A7 /* messengerProgram.xcdatamodel */,
+				B69B31C329900C2900BF18EB /* MessengerModel.xcdatamodel */,
 			);
-			currentVersion = B6832C57298ED5B1009720A7 /* messengerProgram.xcdatamodel */;
-			path = messengerProgram.xcdatamodeld;
+			currentVersion = B69B31C329900C2900BF18EB /* MessengerModel.xcdatamodel */;
+			path = MessengerModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

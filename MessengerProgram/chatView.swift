@@ -6,39 +6,26 @@
 //
 
 import SwiftUI
-import PhotosUI
+import CoreData
 
 struct ChatView: View {
-    @State private var personImage = Image(systemName: "person.circle.fill")
-    @State private var selectedPhoto: PhotosPickerItem? = nil
-    @State private var selectedImageData: Data? = nil
-    @State private var retrieveImage: UIImage? = nil
-
+    @Environment (\.managedObjectContext) var manageObjectContext
+    @Environment (\.dismiss) var dismiss
+    @FetchRequest(sortDescriptors: [SortDescriptor(\.friendIDNickname, order: .reverse)]) var Friend: FetchedResults<Friend>
+    
+    @State private var ID = ""
+    @State private var friendID = ""
+    @State private var friendNickname = "''"
+    
     var body: some View {
-        PhotosPicker (
-            selection: $selectedPhoto,
-            matching: .images,
-            photoLibrary: .shared())
-            {
-                personImage
+        VStack {
+            ForEach(Friend) { item in
+                Text(item.friendIDNickname!)
             }
-            .onChange(of: selectedPhoto) { newItem in
-                Task {
-                    if let data = try? await newItem?.loadTransferable(type: Data.self) {
-                        selectedImageData = data
-                        if selectedImageData != nil {
-                            personImage = Image(uiImage: UIImage(data: selectedImageData!)!)
-                        }
-                    }
-                }
-            }
-            .foregroundColor(Color.blue)
-            .font(.system(size:200))
-            .frame(width: 200.0, height: 200.0)
-            .aspectRatio(contentMode: .fill)
-            .clipShape(Circle())
-        
+        }
     }
+    
+
 }
 
 struct ChatView_Previews: PreviewProvider {
