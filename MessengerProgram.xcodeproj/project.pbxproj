@@ -12,7 +12,6 @@
 		B6832C65298EE633009720A7 /* SearchFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6832C64298EE633009720A7 /* SearchFriendView.swift */; };
 		B69B31C1298F9D6F00BF18EB /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69B31C0298F9D6F00BF18EB /* DataController.swift */; };
 		B69B31C429900C2900BF18EB /* MessengerModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B69B31C229900C2900BF18EB /* MessengerModel.xcdatamodeld */; };
-		B69B31CA299013CF00BF18EB /* Memo.rtf in Resources */ = {isa = PBXBuildFile; fileRef = B69B31C9299013CF00BF18EB /* Memo.rtf */; };
 		B6BBC6D7298591BE00C48926 /* MessengerProgramApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BBC6D6298591BE00C48926 /* MessengerProgramApp.swift */; };
 		B6BBC6DB298591BF00C48926 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6BBC6DA298591BF00C48926 /* Assets.xcassets */; };
 		B6BBC6DE298591BF00C48926 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6BBC6DD298591BF00C48926 /* Preview Assets.xcassets */; };
@@ -29,7 +28,7 @@
 		B6832C64298EE633009720A7 /* SearchFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFriendView.swift; sourceTree = "<group>"; };
 		B69B31C0298F9D6F00BF18EB /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		B69B31C329900C2900BF18EB /* MessengerModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MessengerModel.xcdatamodel; sourceTree = "<group>"; };
-		B69B31C9299013CF00BF18EB /* Memo.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Memo.rtf; sourceTree = "<group>"; };
+		B69B31CB29901A0300BF18EB /* todoList.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = todoList.md; sourceTree = "<group>"; };
 		B6BBC6D3298591BE00C48926 /* MessengerProgram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MessengerProgram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6BBC6D6298591BE00C48926 /* MessengerProgramApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessengerProgramApp.swift; sourceTree = "<group>"; };
 		B6BBC6DA298591BF00C48926 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -82,6 +81,7 @@
 		B6BBC6CA298591BE00C48926 = {
 			isa = PBXGroup;
 			children = (
+				B69B31CB29901A0300BF18EB /* todoList.md */,
 				B6BBC6D5298591BE00C48926 /* MessengerProgram */,
 				B6BBC6D4298591BE00C48926 /* Products */,
 			);
@@ -98,17 +98,12 @@
 		B6BBC6D5298591BE00C48926 /* MessengerProgram */ = {
 			isa = PBXGroup;
 			children = (
+				B6CC7F0E299186C400E9F49C /* View */,
+				B6CC7F0D299186AA00E9F49C /* Network */,
 				B69B31BC298F98D000BF18EB /* DataModel */,
-				B6832C52298E8713009720A7 /* Friend */,
-				B63AC981298C1F0E0057F94A /* AccoutView */,
-				B6EC051B298D5E46001701C5 /* LogIn */,
-				B6BBC6DA298591BF00C48926 /* Assets.xcassets */,
-				B6EC0526298D6C1C001701C5 /* MainView.swift */,
-				B6EC0520298D66CA001701C5 /* ChatView.swift */,
-				B6832C50298E869D009720A7 /* HttpTool.swift */,
 				B6BBC6DC298591BF00C48926 /* Preview Content */,
 				B6BBC6D6298591BE00C48926 /* MessengerProgramApp.swift */,
-				B69B31C9299013CF00BF18EB /* Memo.rtf */,
+				B6BBC6DA298591BF00C48926 /* Assets.xcassets */,
 			);
 			path = MessengerProgram;
 			sourceTree = "<group>";
@@ -119,6 +114,26 @@
 				B6BBC6DD298591BF00C48926 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B6CC7F0D299186AA00E9F49C /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				B6832C50298E869D009720A7 /* HttpTool.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		B6CC7F0E299186C400E9F49C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B6EC0526298D6C1C001701C5 /* MainView.swift */,
+				B6EC0520298D66CA001701C5 /* ChatView.swift */,
+				B63AC981298C1F0E0057F94A /* AccoutView */,
+				B6EC051B298D5E46001701C5 /* LogIn */,
+				B6832C52298E8713009720A7 /* Friend */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		B6EC051B298D5E46001701C5 /* LogIn */ = {
@@ -189,7 +204,6 @@
 			files = (
 				B6BBC6DE298591BF00C48926 /* Preview Assets.xcassets in Resources */,
 				B6BBC6DB298591BF00C48926 /* Assets.xcassets in Resources */,
-				B69B31CA299013CF00BF18EB /* Memo.rtf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

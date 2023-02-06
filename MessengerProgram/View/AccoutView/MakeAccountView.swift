@@ -185,20 +185,21 @@ struct MakeAccountView: View {
                 }
                 
                 
+                
+            }
+            .alert("invaild Email", isPresented: $invaildEmail) {
+                Button("Ok") { invaildEmail = false }
+            }
+            .alert("occured Error", isPresented: $occuredError) {
+                Button("Ok") {occuredError = false}
+            }
+            message: {
+                Text(errorType)
+            }
+            .alert("Your account is set up", isPresented:$createAccount) {
+                Button("Ok") { presentation.wrappedValue.dismiss() }
             }
         
-        }
-        .alert("invaild Email", isPresented: $invaildEmail) {
-            Button("Ok") { invaildEmail = false }
-        }
-        .alert("occured Error", isPresented: $occuredError) {
-            Button("Ok") {occuredError = false}
-        }
-        message: {
-            Text(errorType)
-        }
-        .alert("Your account is set up", isPresented:$createAccount) {
-            Button("Ok") { presentation.wrappedValue.dismiss() }
         }
         
     }
