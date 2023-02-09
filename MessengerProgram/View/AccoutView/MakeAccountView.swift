@@ -33,8 +33,6 @@ struct MakeAccountView: View {
     
     var body: some View {
         
-
-        
         ScrollView() {
             VStack {
                 Text("Create a new account")
