@@ -12,13 +12,13 @@ import SwiftUI
 struct FriendView: View {
     
     @Environment(\.managedObjectContext) var managedObjContext
-    @FetchRequest(sortDescriptors: [SortDescriptor(\.friendIDNickname, order: .reverse), SortDescriptor(\.logInID, order: .reverse)]) var Friend: FetchedResults<Friend>
+//    @FetchRequest(sortDescriptors: [SortDescriptor(\.friendIDNickname, order: .reverse), SortDescriptor(\.logInID, order: .reverse)]) var Friend: FetchedResults<Friend>
     
-    let myID: String
+    let myId: String
     @Binding var isLogIn:Bool
-    
     @State var islogOut = false
-    
+    @State private var friends: [ResNickname] = []
+
     var body: some View {
         NavigationView {
             VStack {
@@ -28,8 +28,13 @@ struct FriendView: View {
                         .padding()
                     
                     Spacer()
+                        .onAppear {
+                            getFriendList(myId: myId, completionHandler: {
+                                (res:[ResNickname]?) -> Void in
+                            })
+                        }
                     
-                    NavigationLink(destination: SearchFriendView(myID: myID), label: {
+                    NavigationLink(destination: SearchFriendView(myId: myId), label: {
                         Image(systemName: "person.badge.plus")
                             .font(.system(size: 30))
                             .padding(.trailing, 20.0)
@@ -61,34 +66,33 @@ struct FriendView: View {
                 Spacer()
                 
                 ScrollView {
-                    
-                    ForEach(Friend) { friend in
-                        if friend.logInID == myID {
-                            HStack {
-                                
-                                Image(systemName: "person.crop.circle.fill")
-                                    .foregroundColor(Color.blue)
-                                    .font(.system(size:35))
-                                    .padding()
-                                
-                                Text(friend.friendIDNickname!)
-                                    .font(.system(size:25))
-                                    .padding()
-                                
-                                Spacer()
-                                
-                                NavigationLink(destination: Text("test")) {
-                                    Image(systemName: "message.fill")
-                                        .font(.system(size:25))
-                                        .padding()
-                                }
-                            }
-                            .frame(height:65.0)
-                            
-                            Divider()
-                                .background(Color.gray)
-                        }
-                    }
+//                    ForEach(Friend) { friend in
+//                        if friend.logInID == myId {
+//                            HStack {
+//
+//                                Image(systemName: "person.crop.circle.fill")
+//                                    .foregroundColor(Color.blue)
+//                                    .font(.system(size:35))
+//                                    .padding()
+//
+//                                Text(friend.friendIDNickname!)
+//                                    .font(.system(size:25))
+//                                    .padding()
+//
+//                                Spacer()
+//
+//                                NavigationLink(destination: Text("test")) {
+//                                    Image(systemName: "message.fill")
+//                                        .font(.system(size:25))
+//                                        .padding()
+//                                }
+//                            }
+//                            .frame(height:65.0)
+//
+//                            Divider()
+//                                .background(Color.gray)
+//                        }
+//                    }
                     
                 }
                 .frame(maxWidth: .infinity)
@@ -106,6 +110,6 @@ struct FriendView_Previews: PreviewProvider {
     @State static var isLogin = true
     
     static var previews: some View {
-        FriendView(myID: "", isLogIn: $isLogin)
+        FriendView(myId: "", isLogIn: $isLogin)
     }
 }

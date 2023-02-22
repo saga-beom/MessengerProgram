@@ -29,6 +29,7 @@ class DataController: ObservableObject {
     }
     
     func addFriend(myID: String, friendID: String, friendNickname: String, context: NSManagedObjectContext ) {
+        
         let friend = Friend(context: context)
         friend.logInID = myID
         friend.friendID = myID

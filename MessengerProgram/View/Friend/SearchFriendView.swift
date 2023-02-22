@@ -19,7 +19,7 @@ struct SearchFriendView: View {
     @State var vaildSearch: Bool = false
     @State var errorOcurred: Bool = false
     
-    let myID:String
+    let myId:String
     
     var body: some View {
         VStack {
@@ -44,15 +44,17 @@ struct SearchFriendView: View {
                     .background(Color(uiColor: . secondarySystemBackground))
                     .cornerRadius(15)
                 Button {
-                    getFriendProfile(id: searchId, completionHandler: {
+                    getFriendProfile(myId: myId, searchId: searchId, completionHandler: {
                         (res:String) -> Void in
-                        if (res == "Error") {
+                        // overlap will be added though alert
+                        if (res == "Error" || res == "invaildID" || res == "overlap") {
                             errorOcurred = true
                             return
                         } else {
                             vaildSearch = true
                             print(res)
-                            DataController().addFriend(myID: myID, friendID: searchId, friendNickname: res, context: managedObjContext)
+                            
+//                            DataController().addFriend(myID: myID, friendID: searchId, friendNickname: res, context: managedObjContext)
                         }
                         
                     })
@@ -86,6 +88,6 @@ struct SearchFriendView: View {
 
 struct SearchFriendView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchFriendView(myID: "")
+        SearchFriendView(myId: "")
     }
 }

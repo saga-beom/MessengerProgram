@@ -19,6 +19,7 @@ struct ChatView: View {
     
     var body: some View {
         VStack {
+            
             ForEach(Friend) { item in
                 Text(item.friendIDNickname!)
             }

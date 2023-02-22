@@ -93,9 +93,9 @@ func checkVaildLogIn(id: String, logIn: @escaping (String) -> Void) {
     task.resume()
 }
 
-func getFriendProfile(id: String, completionHandler: @escaping (String) -> Void) {
+func getFriendProfile(myId: String, searchId:String, completionHandler: @escaping (String) -> Void) {
     
-    var components = URLComponents(string: "http://localhost:3000/searchFriend/\(id)")
+    var components = URLComponents(string: "http://localhost:3000/searchFriend/\(myId)&\(searchId)")
     
     guard let url = components?.url else { return }
     
@@ -105,9 +105,11 @@ func getFriendProfile(id: String, completionHandler: @escaping (String) -> Void)
     
     request.timeoutInterval = 5
     
-    let myQuery = URLQueryItem(name: "id", value: id)
-    
-    components?.queryItems?.append(myQuery)
+    let myIdQuery = URLQueryItem(name: "myId", value: myId)
+    let seachIdQuery = URLQueryItem(name: "searchId", value: searchId)
+        
+    components?.queryItems?.append(myIdQuery)
+    components?.queryItems?.append(seachIdQuery)
     
     let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
         guard let data else { return completionHandler("Error")}
@@ -120,6 +122,33 @@ func getFriendProfile(id: String, completionHandler: @escaping (String) -> Void)
     task.resume()
 }
 
-// get friend File 
+func getFriendList(myId: String,  completionHandler: @escaping ([ResNickname]?) -> Void) {
+    
+    var components = URLComponents(string: "http://localhost:3000/getFriendList/\(myId)")
+    
+    guard let url = components?.url else {return}
+    
+    var request: URLRequest = URLRequest(url: url)
+    
+    request.httpMethod = "GET"
+    
+    request.timeoutInterval = 5
+    
+    let myQuery = URLQueryItem(name: "myId", value: myId)
+    
+    components?.queryItems?.append(myQuery)
+    
+    let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+        guard let data else { return }
+
+        let items = try? JSONDecoder().decode([ResNickname].self, from: data)
+
+        completionHandler(items)
+    }
+
+    
+    task.resume()
+    
+}
 
 

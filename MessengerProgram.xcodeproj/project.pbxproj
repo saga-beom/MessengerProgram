@@ -100,7 +100,6 @@
 			children = (
 				B6CC7F0E299186C400E9F49C /* View */,
 				B6CC7F0D299186AA00E9F49C /* Network */,
-				B69B31BC298F98D000BF18EB /* DataModel */,
 				B6BBC6DC298591BF00C48926 /* Preview Content */,
 				B6BBC6D6298591BE00C48926 /* MessengerProgramApp.swift */,
 				B6BBC6DA298591BF00C48926 /* Assets.xcassets */,
@@ -120,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				B6832C50298E869D009720A7 /* HttpTool.swift */,
+				B69B31BC298F98D000BF18EB /* DataModel */,
 			);
 			path = Network;
 			sourceTree = "<group>";

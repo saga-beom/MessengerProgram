@@ -11,12 +11,12 @@ struct MainView: View {
     
     @Binding var isLogIn:Bool
     
-    let myID:String
+    let myId:String
     
     var body: some View {
         TabView {
             
-            FriendView(myID : myID, isLogIn: $isLogIn).tabItem {
+            FriendView(myId : myId, isLogIn: $isLogIn).tabItem {
                 Image(systemName: "person")
                 Text("Friends")
             }
@@ -35,6 +35,6 @@ struct MainView_Previews: PreviewProvider {
     @State static var isLogin = true
     
     static var previews: some View {
-        MainView(isLogIn: $isLogin , myID: "")
+        MainView(isLogIn: $isLogin , myId: "")
     }
 }
