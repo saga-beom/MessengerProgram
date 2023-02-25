@@ -6,26 +6,59 @@
 //
 
 import SwiftUI
-import CoreData
+import SocketIO
+
 
 struct ChatView: View {
     @Environment (\.managedObjectContext) var manageObjectContext
     @Environment (\.dismiss) var dismiss
-    @FetchRequest(sortDescriptors: [SortDescriptor(\.friendIDNickname, order: .reverse)]) var Friend: FetchedResults<Friend>
     
-    @State private var ID = ""
-    @State private var friendID = ""
-    @State private var friendNickname = "''"
+    @State private var message = ""
+    @State private var messages: [String] = []
+    
+    let manager = SocketManager(socketURL: URL(string: "http://localhost:3000")!)
+    let socket: SocketIOClient
+    
+    init() {
+        socket = manager.defaultSocket
+    }
     
     var body: some View {
         VStack {
+            Text("Chat")
+                .font(.largeTitle)
+            ScrollView {
+                VStack {
+                    ForEach(messages, id: \.self) {
+                        message in Text(message)
+                    }
+                }
+            }
+            HStack {
+                TextField("Message", text: $message)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                Button(action: sendMessage) {
+                    Text("Send")
+                }
+            }
+            .padding()
             
-            ForEach(Friend) { item in
-                Text(item.friendIDNickname!)
+        }
+        .onAppear {
+            self.socket.connect()
+            self.socket.on("chat message") { data, ack in
+                if let message = data.first as? String {
+                    self.messages.append(message)
+                }
             }
         }
+        
     }
     
+    func sendMessage() {
+        socket.emit("chat message", message)
+        message = ""
+    }
 
 }
 

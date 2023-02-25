@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-// check friend overlap 
-
 
 struct SearchFriendView: View {
     @Environment(\.managedObjectContext) var managedObjContext
@@ -46,15 +44,12 @@ struct SearchFriendView: View {
                 Button {
                     getFriendProfile(myId: myId, searchId: searchId, completionHandler: {
                         (res:String) -> Void in
-                        // overlap will be added though alert
                         if (res == "Error" || res == "invaildID" || res == "overlap") {
                             errorOcurred = true
                             return
                         } else {
                             vaildSearch = true
                             print(res)
-                            
-//                            DataController().addFriend(myID: myID, friendID: searchId, friendNickname: res, context: managedObjContext)
                         }
                         
                     })

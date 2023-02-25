@@ -15,6 +15,7 @@
 		B6BBC6D7298591BE00C48926 /* MessengerProgramApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BBC6D6298591BE00C48926 /* MessengerProgramApp.swift */; };
 		B6BBC6DB298591BF00C48926 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6BBC6DA298591BF00C48926 /* Assets.xcassets */; };
 		B6BBC6DE298591BF00C48926 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6BBC6DD298591BF00C48926 /* Preview Assets.xcassets */; };
+		B6C5DEE229AA32F5002337FA /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = B6C5DEE129AA32F5002337FA /* SocketIO */; };
 		B6EC050C298D0315001701C5 /* MakeAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EC050B298D0315001701C5 /* MakeAccountView.swift */; };
 		B6EC051D298D5E87001701C5 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EC051C298D5E87001701C5 /* RootView.swift */; };
 		B6EC0521298D66CB001701C5 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EC0520298D66CA001701C5 /* ChatView.swift */; };
@@ -45,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6C5DEE229AA32F5002337FA /* SocketIO in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,6 +162,9 @@
 			dependencies = (
 			);
 			name = MessengerProgram;
+			packageProductDependencies = (
+				B6C5DEE129AA32F5002337FA /* SocketIO */,
+			);
 			productName = MessengerProgram;
 			productReference = B6BBC6D3298591BE00C48926 /* MessengerProgram.app */;
 			productType = "com.apple.product-type.application";
@@ -188,6 +193,9 @@
 				Base,
 			);
 			mainGroup = B6BBC6CA298591BE00C48926;
+			packageReferences = (
+				B6C5DEE029AA32F5002337FA /* XCRemoteSwiftPackageReference "socket" */,
+			);
 			productRefGroup = B6BBC6D4298591BE00C48926 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -425,6 +433,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B6C5DEE029AA32F5002337FA /* XCRemoteSwiftPackageReference "socket" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/socketio/socket.io-client-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B6C5DEE129AA32F5002337FA /* SocketIO */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B6C5DEE029AA32F5002337FA /* XCRemoteSwiftPackageReference "socket" */;
+			productName = SocketIO;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		B69B31C229900C2900BF18EB /* MessengerModel.xcdatamodeld */ = {

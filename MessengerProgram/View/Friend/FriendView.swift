@@ -12,12 +12,11 @@ import SwiftUI
 struct FriendView: View {
     
     @Environment(\.managedObjectContext) var managedObjContext
-//    @FetchRequest(sortDescriptors: [SortDescriptor(\.friendIDNickname, order: .reverse), SortDescriptor(\.logInID, order: .reverse)]) var Friend: FetchedResults<Friend>
     
     let myId: String
     @Binding var isLogIn:Bool
     @State var islogOut = false
-    @State private var friends: [ResNickname] = []
+    @State private var friends: [String] = []
 
     var body: some View {
         NavigationView {
@@ -30,7 +29,8 @@ struct FriendView: View {
                     Spacer()
                         .onAppear {
                             getFriendList(myId: myId, completionHandler: {
-                                (res:[ResNickname]?) -> Void in
+                                (res:[String]?) -> Void in
+                                friends = res ?? []
                             })
                         }
                     
@@ -66,34 +66,32 @@ struct FriendView: View {
                 Spacer()
                 
                 ScrollView {
-//                    ForEach(Friend) { friend in
-//                        if friend.logInID == myId {
-//                            HStack {
-//
-//                                Image(systemName: "person.crop.circle.fill")
-//                                    .foregroundColor(Color.blue)
-//                                    .font(.system(size:35))
-//                                    .padding()
-//
-//                                Text(friend.friendIDNickname!)
-//                                    .font(.system(size:25))
-//                                    .padding()
-//
-//                                Spacer()
-//
-//                                NavigationLink(destination: Text("test")) {
-//                                    Image(systemName: "message.fill")
-//                                        .font(.system(size:25))
-//                                        .padding()
-//                                }
-//                            }
-//                            .frame(height:65.0)
-//
-//                            Divider()
-//                                .background(Color.gray)
-//                        }
-//                    }
-                    
+                    if friends != [""] {
+                        ForEach(friends, id : \.self) { friend in
+                            HStack {
+                                Image(systemName: "person.crop.circle.fill")
+                                    .foregroundColor(Color.blue)
+                                    .font(.system(size:35))
+                                    .padding()
+                                
+                                Text(friend)
+                                    .font(.system(size:25))
+                                    .padding()
+                                
+                                Spacer()
+                                
+                                NavigationLink(destination: Text("test")) {
+                                    Image(systemName: "message.fill")
+                                        .font(.system(size:25))
+                                        .padding()
+                                }
+                            }
+                            .frame(height:65.0)
+                            
+                            Divider()
+                                .background(Color.gray)
+                        }
+                    }
                 }
                 .frame(maxWidth: .infinity)
             }

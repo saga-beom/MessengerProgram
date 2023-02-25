@@ -37,7 +37,7 @@ struct ResNickname: Codable {
 
 func setUpAccount(id: String, pwd: String, nickname: String, email:String, errorType: @escaping (String) -> Void) {
             
-    let components = URLComponents(string: "http://localhost:3000/setUpAccount")
+    let components = URLComponents(string: "http://192.168.10.104:3000/setUpAccount")
     
     guard let url = components?.url else {return}
     
@@ -68,7 +68,7 @@ func setUpAccount(id: String, pwd: String, nickname: String, email:String, error
 
 func checkVaildLogIn(id: String, logIn: @escaping (String) -> Void) {
     
-    var components = URLComponents(string: "http://localhost:3000/logIn/\(id)")
+    var components = URLComponents(string: "http://192.168.10.104:3000/logIn/\(id)")
     
     guard let url = components?.url else { return }
     
@@ -95,7 +95,7 @@ func checkVaildLogIn(id: String, logIn: @escaping (String) -> Void) {
 
 func getFriendProfile(myId: String, searchId:String, completionHandler: @escaping (String) -> Void) {
     
-    var components = URLComponents(string: "http://localhost:3000/searchFriend/\(myId)&\(searchId)")
+    var components = URLComponents(string: "http://192.168.10.104:3000/searchFriend/\(myId)&\(searchId)")
     
     guard let url = components?.url else { return }
     
@@ -122,9 +122,11 @@ func getFriendProfile(myId: String, searchId:String, completionHandler: @escapin
     task.resume()
 }
 
-func getFriendList(myId: String,  completionHandler: @escaping ([ResNickname]?) -> Void) {
+func getFriendList(myId: String,  completionHandler: @escaping ([String]) -> Void) {
     
-    var components = URLComponents(string: "http://localhost:3000/getFriendList/\(myId)")
+    var friendList = [String]()
+        
+    let components = URLComponents(string: "http://192.168.10.104:3000/getFriendList/\(myId)")
     
     guard let url = components?.url else {return}
     
@@ -134,16 +136,31 @@ func getFriendList(myId: String,  completionHandler: @escaping ([ResNickname]?) 
     
     request.timeoutInterval = 5
     
-    let myQuery = URLQueryItem(name: "myId", value: myId)
-    
-    components?.queryItems?.append(myQuery)
-    
     let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-        guard let data else { return }
+           if let error = error {
+               print("Error: \(error.localizedDescription)")
+               completionHandler([])
+               return
+           }
+           
+           guard let data = data else {
+               print("No data returned from server")
+               completionHandler([])
+               return
+           }
 
-        let items = try? JSONDecoder().decode([ResNickname].self, from: data)
-
-        completionHandler(items)
+            if let responseString = String(data: data, encoding: .utf8) {
+                let friendList = responseString
+                    .trimmingCharacters(in: CharacterSet(charactersIn: "[]"))
+                    .replacingOccurrences(of: "\\\"", with: "")
+                    .components(separatedBy: ",")
+                    .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
+                    .map { $0.replacingOccurrences(of: "\"", with: "") }
+                completionHandler(friendList)
+            } else {
+                print("Could not convert data to string")
+                completionHandler([])
+        }
     }
 
     
