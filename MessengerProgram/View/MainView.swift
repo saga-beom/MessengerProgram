@@ -21,7 +21,7 @@ struct MainView: View {
                 Text("Friends")
             }
             
-            ChatView().tabItem {
+            ChatView(logInId: myId, opponentId: "").tabItem {
                 Image(systemName: "message")
                 Text("Chat")
             }

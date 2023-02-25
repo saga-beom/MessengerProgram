@@ -122,10 +122,8 @@ func getFriendProfile(myId: String, searchId:String, completionHandler: @escapin
     task.resume()
 }
 
-func getFriendList(myId: String,  completionHandler: @escaping ([String]) -> Void) {
+func getFriendList(myId: String, completionHandler: @escaping ([String: String]?) -> Void) {
     
-    var friendList = [String]()
-        
     let components = URLComponents(string: "http://192.168.10.104:3000/getFriendList/\(myId)")
     
     guard let url = components?.url else {return}
@@ -139,31 +137,37 @@ func getFriendList(myId: String,  completionHandler: @escaping ([String]) -> Voi
     let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
            if let error = error {
                print("Error: \(error.localizedDescription)")
-               completionHandler([])
+               completionHandler(nil)
                return
            }
            
            guard let data = data else {
                print("No data returned from server")
-               completionHandler([])
+               completionHandler(nil)
                return
            }
 
-            if let responseString = String(data: data, encoding: .utf8) {
-                let friendList = responseString
-                    .trimmingCharacters(in: CharacterSet(charactersIn: "[]"))
-                    .replacingOccurrences(of: "\\\"", with: "")
-                    .components(separatedBy: ",")
-                    .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
-                    .map { $0.replacingOccurrences(of: "\"", with: "") }
-                completionHandler(friendList)
-            } else {
-                print("Could not convert data to string")
-                completionHandler([])
-        }
+            do {
+                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [[String: Any]] {
+                    var friendList = [String : String]()
+                    for friendData in json {
+                        if let friendName = friendData["friendNickname"] as? String,
+                           let friendId = friendData["friendId"] as? String
+                        {
+                            friendList[friendId] = friendName
+                        }
+                    }
+                    completionHandler(friendList)
+                } else {
+                    print("Could not convert data to JSON")
+                    completionHandler(nil)
+                }
+            } catch let error {
+                print("Error parsing JSON: \(error)")
+                completionHandler(nil)
+            }
     }
 
-    
     task.resume()
     
 }

@@ -14,9 +14,9 @@ struct FriendView: View {
     @Environment(\.managedObjectContext) var managedObjContext
     
     let myId: String
-    @Binding var isLogIn:Bool
+    @Binding var isLogIn: Bool
     @State var islogOut = false
-    @State private var friends: [String] = []
+    @State private var friends: [String:String] = [:]
 
     var body: some View {
         NavigationView {
@@ -28,10 +28,11 @@ struct FriendView: View {
                     
                     Spacer()
                         .onAppear {
-                            getFriendList(myId: myId, completionHandler: {
-                                (res:[String]?) -> Void in
-                                friends = res ?? []
-                            })
+                            getFriendList(myId: myId) { friends in
+                                DispatchQueue.main.async {
+                                    self.friends = friends ?? [:]
+                                }
+                            }
                         }
                     
                     NavigationLink(destination: SearchFriendView(myId: myId), label: {
@@ -66,21 +67,21 @@ struct FriendView: View {
                 Spacer()
                 
                 ScrollView {
-                    if friends != [""] {
-                        ForEach(friends, id : \.self) { friend in
+                    if !friends.isEmpty {
+                        ForEach(friends.sorted(by: { $0.key < $1.key }), id: \.key) { id, nickname in
                             HStack {
                                 Image(systemName: "person.crop.circle.fill")
                                     .foregroundColor(Color.blue)
                                     .font(.system(size:35))
                                     .padding()
                                 
-                                Text(friend)
+                                Text(nickname)
                                     .font(.system(size:25))
                                     .padding()
                                 
                                 Spacer()
                                 
-                                NavigationLink(destination: Text("test")) {
+                                NavigationLink(destination: ChatView(logInId: myId, opponentId: id)) {
                                     Image(systemName: "message.fill")
                                         .font(.system(size:25))
                                         .padding()
@@ -95,12 +96,7 @@ struct FriendView: View {
                 }
                 .frame(maxWidth: .infinity)
             }
-            
-                
-            
         }
-        
-        
     }
 }
 

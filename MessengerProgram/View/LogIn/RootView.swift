@@ -64,7 +64,7 @@ struct RootView: View {
                     .alert("Error occured", isPresented: $logInError) {
                         Button("Ok") { logInError = false }
                     } message: {
-                        Text("unexpected error has occurred, please try again")
+                        Text("An unexpected error has occurred or you may have entered the wrong password. Please try again.")
                     }
                     
                     HStack {
