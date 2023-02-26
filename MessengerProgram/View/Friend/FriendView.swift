@@ -6,17 +6,20 @@
 //
 
 import SwiftUI
+import SocketIO
 
-//add log-out alert
 
 struct FriendView: View {
     
     @Environment(\.managedObjectContext) var managedObjContext
     
     let myId: String
+    let socket: SocketIOClient
     @Binding var isLogIn: Bool
     @State var islogOut = false
     @State private var friends: [String:String] = [:]
+    @State private var reqChat: [String: Bool] = [:]
+    
 
     var body: some View {
         NavigationView {
@@ -27,13 +30,6 @@ struct FriendView: View {
                         .padding()
                     
                     Spacer()
-                        .onAppear {
-                            getFriendList(myId: myId) { friends in
-                                DispatchQueue.main.async {
-                                    self.friends = friends ?? [:]
-                                }
-                            }
-                        }
                     
                     NavigationLink(destination: SearchFriendView(myId: myId), label: {
                         Image(systemName: "person.badge.plus")
@@ -59,7 +55,6 @@ struct FriendView: View {
                         isLogIn = false
                     }
                 }
-                
                 Divider()
                     .frame(height: 1)
                     .background(Color.blue)
@@ -81,10 +76,20 @@ struct FriendView: View {
                                 
                                 Spacer()
                                 
-                                NavigationLink(destination: ChatView(logInId: myId, opponentId: id)) {
-                                    Image(systemName: "message.fill")
-                                        .font(.system(size:25))
-                                        .padding()
+                                if checkRequest(id: id) {
+                                    NavigationLink(destination: ChatView(logInId: myId, opponentId: id, revsocket: socket, opponentNickname: nickname)) {
+                                        Image(systemName: "message.fill")
+                                            .font(.system(size:25))
+                                            .padding()
+                                            .foregroundColor(.red)
+                                    }
+                                } else {
+                                    NavigationLink(destination: ChatView(logInId: myId, opponentId: id, revsocket: socket, opponentNickname: nickname)) {
+                                        Image(systemName: "message.fill")
+                                            .font(.system(size:25))
+                                            .padding()
+                                    }
+
                                 }
                             }
                             .frame(height:65.0)
@@ -96,14 +101,35 @@ struct FriendView: View {
                 }
                 .frame(maxWidth: .infinity)
             }
+        }.onAppear {
+            getFriendList(myId: myId) { friends in
+                DispatchQueue.main.async {
+                    self.friends = friends ?? [:]
+                }
+            }
+//            socket.on("chat request") { data, ack in
+//                DispatchQueue.main.async {
+//                    if let request = data.first as? String {
+//                        reqChat[request] = true
+//                    }
+//                }
+//
+//            } Maybe coredata handle this problem
         }
+    }
+    func checkRequest(id:String) -> Bool {
+        print(reqChat)
+        if(reqChat[id] == true) {
+            return true
+        }
+        return false
     }
 }
 
-struct FriendView_Previews: PreviewProvider {
-    @State static var isLogin = true
-    
-    static var previews: some View {
-        FriendView(myId: "", isLogIn: $isLogin)
-    }
-}
+//struct FriendView_Previews: PreviewProvider {
+//    @State static var isLogin = true
+//
+//    static var previews: some View {
+////        FriendView(myId: "",socket: , isLogIn: $isLogin)
+//    }
+//}

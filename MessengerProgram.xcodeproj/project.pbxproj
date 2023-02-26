@@ -34,6 +34,7 @@
 		B6BBC6D6298591BE00C48926 /* MessengerProgramApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessengerProgramApp.swift; sourceTree = "<group>"; };
 		B6BBC6DA298591BF00C48926 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B6BBC6DD298591BF00C48926 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B6C3EF5829AB1B9600721A9F /* readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
 		B6EC050B298D0315001701C5 /* MakeAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeAccountView.swift; sourceTree = "<group>"; };
 		B6EC051C298D5E87001701C5 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		B6EC0520298D66CA001701C5 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
@@ -83,6 +84,7 @@
 		B6BBC6CA298591BE00C48926 = {
 			isa = PBXGroup;
 			children = (
+				B6C3EF5829AB1B9600721A9F /* readme.md */,
 				B69B31CB29901A0300BF18EB /* todoList.md */,
 				B6BBC6D5298591BE00C48926 /* MessengerProgram */,
 				B6BBC6D4298591BE00C48926 /* Products */,

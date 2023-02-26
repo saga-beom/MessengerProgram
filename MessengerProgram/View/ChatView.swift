@@ -17,19 +17,22 @@ struct ChatView: View {
     @State private var messages: [[String: String]] = [[:]]
     let myId:String
     let friendId:String
+    let friendNickname: String
     
     let manager = SocketManager(socketURL: URL(string: "http://localhost:3000")!)
     let socket: SocketIOClient
     
-    init(logInId: String, opponentId: String) {
-        socket = manager.defaultSocket
+    init(logInId: String, opponentId: String, revsocket: SocketIOClient, opponentNickname: String) {
+        socket = revsocket
         myId = logInId.lowercased()
         friendId = opponentId
+        friendNickname = opponentNickname
+        
     }
     
     var body: some View {
         VStack {
-            Text("Chat")
+            Text(friendNickname)
                 .font(.largeTitle)
             ScrollView {
                 VStack {
@@ -84,9 +87,9 @@ struct ChatView: View {
             
         }
         .onAppear {
-            self.socket.on(clientEvent: .connect) { data, ack in
-                self.socket.emit("register", self.myId)
-            }
+
+            chatRequest()
+            
             self.socket.on("chat message") { data, ack in
                 if let messageData = data.first as? [String: Any],
                    let message = messageData["msg"] as? String,
@@ -95,8 +98,7 @@ struct ChatView: View {
                     self.messages.append([sender:message])
                 }
             }
-            
-            self.socket.connect()
+                                    
         }
         
     }
@@ -114,11 +116,20 @@ struct ChatView: View {
         }
         message = ""
     }
-
-}
-
-struct ChatView_Previews: PreviewProvider {
-    static var previews: some View {
-        ChatView(logInId: "shb0217", opponentId: "shb0216")
+    
+    func chatRequest() {
+        let req : [String: Any] = [
+            "sender": myId,
+            "receiver": friendId
+        ]
+        
+        socket.emit("chat request", req)
     }
+
 }
+
+//struct ChatView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ChatView(logInId: "shb0217", opponentId: "shb0216")
+//    }
+//}
